@@ -1,5 +1,5 @@
 {
-    "author": "utom",
+    "author": "pranjal.kumar",
     "commands" : [
         {
             "name": "Toolbar",
@@ -166,10 +166,10 @@
         ],
         "title" : "Sketch Measure"
     },
-    "identifier": "com.utom.measure",
-    "homepage": "http://utom.design/measure/",
+    "identifier": "com.pagalguy.measure",
+    "homepage": "http://www.pagalguy.com",
     "version": "2.4.2",
     "description" : "Make it a fun to create spec for developers and teammates",
-    "authorEmail" : "utombox@gmail.com",
-    "name" : "Sketch Measure"
+    "authorEmail" : "pranjal.kumar@pagalguy.com",
+    "name" : "PG Sketch Measure"
 }

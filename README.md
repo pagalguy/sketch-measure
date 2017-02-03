@@ -1,13 +1,10 @@
-# Sketch Measure
+# PG's Fork of Sketch Measure
 
-Make it fun to create specs for developers and teammates. **Sketch 41.* support**.
+## Additions
+- versioned images per build
 
-- [How to](http://utom.design/measure/how-to.html)
-- [中文说明](http://sketch.im/plugins/1)
-
-#### [Sponsor me to buy a new iPhone](http://utom.design/measure/donate.html)
-
-![Logo](http://utom.design/logo@2x.png)
+## TODO 
+- Deploy Specs to Firebase
 
 ## Installing Plugins
 1. [Download the ZIP file](https://github.com/utom/sketch-measure/archive/master.zip) and unzip

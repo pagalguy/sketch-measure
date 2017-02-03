@@ -17,6 +17,19 @@ function _(str, data){
     });
 }
 
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+var CONST = {
+    previewFolderName: 'preview_'+makeid(),
+}
+
 var SM = {
         init: function(context, command){
             this.prefs = NSUserDefaults.standardUserDefaults();
@@ -1692,8 +1705,8 @@ SM.extend({
                         content.push("style-name: " + styleName);
                     }
                     break;
-        				case "layer-name":
-        					   content.push("layer-name: " + target.name());
+                        case "layer-name":
+                               content.push("layer-name: " + target.name());
                      break;
                 default:
                     render = false;
@@ -2978,11 +2991,11 @@ SM.extend({
                             }
                             else{
                                 // data.artboards[artboardIndex].imagePath = "preview/" + objectID + ".png";
-                                data.artboards[artboardIndex].imagePath = "preview/" + encodeURI(slug) + ".png";
+                                data.artboards[artboardIndex].imagePath = CONST.previewFolderName + "/" + encodeURI(slug) + ".png";
 
                                 self.exportImage({
                                         layer: artboard,
-                                        path: self.toJSString(savePath) + "/preview",
+                                        path: self.toJSString(savePath) + "/" + CONST.previewFolderName,
                                         scale: 2,
                                         // name: objectID,
                                         name: slug
