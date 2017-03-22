@@ -1,5 +1,5 @@
 {
-    "author": "utom",
+    "author": "pranjal.kumar",
     "commands" : [
         {
             "name": "工具欄",
@@ -169,7 +169,7 @@
         ],
         "title" : "PG Sketch Measure"
     },
-    "identifier": "com.utom.measure",
+    "identifier": "com.pagalguy.measure",
     "homepage": "http://utom.design/measure/",
     "version": "2.5",
     "description" : "Make it a fun to create spec for developers and teammates",

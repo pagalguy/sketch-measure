@@ -197,6 +197,11 @@ main{position:relative;height:calc(100vh - 60px);}
 .cursor.show{display:block;}
 .cursor.moving{background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAMAAAAJbCvNAAABMlBMVEUAAAAAAAA2NjYsLCwCAgIAAAAAAAAMDAwBAQECAgIBAQECAgIBAQEBAQEAAAAAAAAAAAA5OTkgICAICAgAAAAcHBwCAgIAAAAAAAAAAAAAAAAAAABDQ0M8PDwxMTE0NDQVFRUCAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDw8DAwMAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAABhYWEcHBz6+vr39/dMTEzs7Oy8vLy4uLhWVlYqKiooKCj09PTw8PC1tbWnp6d2dnZZWVn8/Pzp6enj4+Pd3d3a2trNzc2tra2pqammpqaKioqAgIBzc3NwcHBmZmZdXV1TU1NHR0c+Pj7W1tbR0dHGxsbAwMCampqSkpKPj4+GhoZycnJsbGwkJCTy91wiAAAANnRSTlMAPP7+/ZcN/Pnr487Kv7QlEv7+/fz71jk2GAcE/v7+/fzzpaCUkGZZQTEsIAn826uEg3JtXFGryOxIAAABkElEQVR4AeXS1XLbQBjF8RXIDHbNdiBpOCnDOa4kg2Oww9w2KUPf/xW6s8q2sTXT6X1+t99/NJozK+6lR8ZmRPzDZpxc3sg9y2Sez3aNl+mUsx23TjpzxbJtmnaqMR08ZO8mGuNn4JA8AU75YiXl5ISW5SXwgTwAUGIfcAuM3thpoRnsAJhnC8DcY0gWj3HBmg5qPAdw1nMBfJ9Aai4AQ1aFllzENNcD2jSEsuOkEvyIEB1k44XrEicI6bCigtXoIbzFN5D2PMAbAG4L0im3VVD2AQyOIF3lgeY88MOC9JXBEEkf2rsHwHtLRup749jtikvTQU8Hflkor/hJB00ZdHUwKKwKJRLP70FRh+7ubXDOLRHY4GU4wEE0I7Q1foPyVh4mQeCay1nxx1OeqWC8K6MF4MrCmK/FX/W0PQKCgfr7gLd/ZDvirkiaX3DXRTE381wzHEFp5UvHQPeJmNFImlD8WOJXH35SzFpZGnba7eFPrleK1yMzEQocBtaEWI+R4aC+Va0YRrWm/jm7Uxf/5zeExWvZghlTSgAAAABJRU5ErkJggg==');}
     </style>
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <style type="text/css">
+      .notie-container { z-index: 1000; }
+    </style>
     <script type="text/javascript">
     <!--
     /*! jQuery v3.0.0 | (c) jQuery Foundation | jquery.org/license */
@@ -208,6 +213,26 @@ var I18N = {},
     timestamp = new Date().getTime();
 
 timestamp = 'pg'; // Disabling Timestamp so images can be cached. Versioning is implemented in the image path itself. 
+
+// =====================================================================================
+
+  /* LOADING */
+  function preloadImages(self) {
+    var images = $('#app img');
+    var width = 0;
+    var increment = Math.floor(100 / images.length);
+    notie.alert({ text: 'Pre-loading images...' });
+    $('#app img').each(function() {
+      var src = $(this).attr('src');
+      $('<img>').attr("src", src).on('load', function() {
+        width += increment;
+        notie.alert({ text: 'Pre-loading images...'+width+'% done.' });
+        console.log('Pre-loading images...'+width+'% done.');
+      });
+    });
+  }
+  
+// =====================================================================================
 
 <!-- lang -->
 (function(window) {
@@ -1557,6 +1582,9 @@ timestamp = 'pg'; // Disabling Timestamp so images can be cached. Versioning is 
             $('.tab').remove();
             $('.navbar').remove();
         }
+
+        preloadImages(self);
+
         return this;
     };
     init.prototype = SMApp.fn;
@@ -1569,4 +1597,5 @@ $(function(){ SMApp(<!-- data -->) });
   <!--_-->
   <body id="app"></body>
 
+  <script src="https://unpkg.com/notie"></script>
 </html>

@@ -994,7 +994,7 @@ SM.extend({
     },
     Toolbar: function(){
         var self = this,
-            identifier = "com.utom.measure",
+            identifier = "com.pagalguy.measure",
             threadDictionary = NSThread.mainThread().threadDictionary(),
             Toolbar = threadDictionary[identifier];
 
@@ -2197,7 +2197,7 @@ SM.extend({
             height: 451,
             data: data,
             floatWindow: true,
-            identifier: "com.utom.measure.colors",
+            identifier: "com.pagalguy.measure.colors",
             callback: function( data ){
                 var colors = data;
                 self.configs = self.setConfigs({
